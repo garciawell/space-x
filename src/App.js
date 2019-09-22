@@ -1,15 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import GlobalStyle from './styles/global';
-
 import { Wrapper } from './styles/components';
-
 import Routes from './routes';
-import store from './store';
+import { ApolloProvider } from '@apollo/react-hooks';
+import api from '~/services/api';
 
 const App = () => (
-  <Provider store={store}>
+  <ApolloProvider client={api}>
     <BrowserRouter>
       <>
         <Wrapper>
@@ -18,6 +16,6 @@ const App = () => (
         <GlobalStyle />
       </>
     </BrowserRouter>
-  </Provider>
+  </ApolloProvider>
 );
 export default App;
